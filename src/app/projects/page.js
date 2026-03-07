@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 
-// ── ADD YOUR PROJECTS HERE ──────────────────────────────────
+
 const projects = [
   {
     id: 1,
@@ -36,9 +36,9 @@ const projects = [
     gradient: "linear-gradient(135deg, #10b981, #06b6d4)",
   },
 ];
-// ───────────────────────────────────────────────────────────
 
-// ── Single Card ─────────────────────────────────────────────
+
+
 function ProjectCard({ project }) {
   const [hovered, setHovered] = useState(false);
 
@@ -263,7 +263,7 @@ function ProjectCard({ project }) {
   );
 }
 
-// ── Projects Page ────────────────────────────────────────────
+
 export default function Projects() {
   return (
     <main

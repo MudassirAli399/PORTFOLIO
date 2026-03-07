@@ -249,9 +249,7 @@ article:last-child .profile-content::before {
     0 16px 48px rgba(0, 0, 0, 0.3);
   height: auto !important;
   padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
-  gap: 0;
+  
 }
 
 

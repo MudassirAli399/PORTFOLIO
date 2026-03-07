@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 "use client";
 
 import "./css/home.css";
@@ -12,6 +11,20 @@ export default function Home() {
   const [firstvariable,setfirstvariable] = useState("Frontend Developer");
   const [secondvariable,setsecondvariable] = useState("Backend Developer");
   const [display, setDisplay] = useState("");
+ const [ismobile, setismobile] = useState(false);
+
+useEffect(()=>{
+  const resizehandler=()=>{if(window.innerWidth<=900){
+    setismobile(true)
+  }}
+  resizehandler()
+  window.addEventListener("resize",resizehandler)
+  return ()=>{
+    window.removeEventListener("resize",resizehandler)
+  }
+
+},[])
+
 
   useEffect(()=>{
     let i=1
@@ -41,7 +54,7 @@ export default function Home() {
     const interval =  setInterval(() => {
       setDisplay(secondvariable.slice(0,i));
       i++
-      if(i==firstvariable.length+1){
+      if(i==secondvariable.length+1){
         clearInterval(interval)
         console.log("hello",i);
         const interval2 =  setInterval(() => {
@@ -63,15 +76,15 @@ export default function Home() {
   },[wordswap])
   return (
     <main>
-      {/* ── PROFILE SECTION ── */}
+      
       <section id="ProfileInfo">
-        <div id="main-coontainer" className="w-full grid grid-cols-[55%_45%]">
-          {/* LEFT SIDE */}
+        <div id="main-coontainer" className={ismobile? "w-full grid  grid-cols-[100%]": "w-full grid  grid-cols-[55%_45%]"}>
+          
           <article>
             <div className="profile-content flex flex-col pl-[10%]">
               <div id="Name" className="w-full flex-[1]">
                 <div>
-                  I AM{" "}
+                  I AM
                   <b id="hello">MUDASSIR ALI</b>
                 </div>
               </div>
@@ -92,12 +105,12 @@ export default function Home() {
             </div>
           </article>
 
-          {/* RIGHT SIDE */}
+        
           <article>
             <div className="profile-content flex items-center justify-center">
               <div className="profile-image relative overflow-hidden">
                 <Image
-                  src="/mudassir.jpg"
+                  src="/mudassirali-image.jpeg"
                   alt="Profile"
                   fill
                   style={{ objectFit: "cover" }}
@@ -109,18 +122,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CONTACT SECTION ── */}
+      
       <section>
-        <div className="contact-info">
-          {/* Column 1 — Label */}
+        <div className={ismobile? "contact-info grid grid-cols-[100%]" : "contact-info grid grid-cols-[1fr_1fr_2fr]"}>
+         
           <div className="getintouch" />
 
-          {/* Column 2 — Details */}
+          
           <div className="getintouchdetails">
             <div className="contact-item">
               <span className="contact-label">Email</span>
-              <span className="contact-value">mudassir@example.com</span>
-            </div>
+                <span className="contact-value">mudassira435@example.com</span>
+              </div>
+              <div className="contact-item">
+              <span className="contact-label">Other Email</span>
+                <span className="contact-value">mudassirali7957@example.com</span>
+              </div>
             <div className="contact-item">
               <span className="contact-label">Location</span>
               <span className="contact-value">Pakistan</span>
@@ -131,11 +148,11 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Column 3 — Social Links (4 evenly spaced) */}
+          
           <div className="getintouchlinks">
-            {/* GitHub */}
+            
             <a
-              href="https://github.com/"
+              href="https://github.com/MudassirAli399"
               target="_blank"
               rel="noopener noreferrer"
               className="social-link"
@@ -146,9 +163,9 @@ export default function Home() {
               <span>GitHub</span>
             </a>
 
-            {/* LinkedIn */}
+            
             <a
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/in/mudassir-ali-1994b8397?utm_source=share_via&utm_content=profile&utm_medium=member_android"
               target="_blank"
               rel="noopener noreferrer"
               className="social-link"
@@ -159,24 +176,22 @@ export default function Home() {
               <span>LinkedIn</span>
             </a>
 
-            {/* Portfolio */}
+            
             <a
-              href="#"
+              href="https://wa.me/923067957399"
               target="_blank"
               rel="noopener noreferrer"
               className="social-link"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
               </svg>
-              <span>Portfolio</span>
+              <span>Whatsapp</span>
             </a>
 
-            {/* Email */}
+           
             <a
-              href="mailto:mudassir@example.com"
+              href="mailto:mudassirali7957@example.com"
               className="social-link"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -188,38 +203,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+     
     </main>
   );
 }
-=======
 
 
-export default function Home() {
-  return (
-    <>
-    
-    
-
-    
-    <main>
-
-      <div className="w-full border-2 h-[400px]">
-    Hello
-
-    </div>
-
-      <div className="w-full border-2 h-[400px]">
 
 
-    </div>
-    </main>
-    
-
-
-    
-
-    
-    </>
-  );
-}
->>>>>>> 182255fbd23779e68ea16e16c355d050a008b786

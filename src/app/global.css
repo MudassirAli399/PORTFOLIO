@@ -1,10 +1,5 @@
 @import "tailwindcss/preflight";
 
 @tailwind utilities;
-<<<<<<< HEAD
 
-#hello{
-    fontsize:100px
-}
-=======
->>>>>>> 182255fbd23779e68ea16e16c355d050a008b786
+

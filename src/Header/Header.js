@@ -22,11 +22,7 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-<<<<<<< HEAD
   const navItems = ['HOME', 'ABOUT', 'PROJECTS', 'RESUME'];
-=======
-  const navItems = ['HOME', 'ABOUT', 'PROJECTS', 'RESUME', 'CONTACT'];
->>>>>>> 182255fbd23779e68ea16e16c355d050a008b786
 
   return (
     <header style={styles.header}>

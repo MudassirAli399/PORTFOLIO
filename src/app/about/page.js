@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 "use client";
 
 import "../css/about.css";
@@ -16,25 +15,25 @@ const skills = [
 
 const education = [
   {
-    degree: "Bachelor of Science in Computer Science",
+    degree: "Bachelor of Science in Information Technology",
     institution: "University of the Punjab",
-    year: "2022 — 2026",
+    year: "2023 — 2027",
     description:
       "Studying core computer science fundamentals including data structures, algorithms, databases, and software engineering principles.",
     status: "Ongoing",
   },
   {
-    degree: "Intermediate (Pre-Engineering)",
-    institution: "Government College, Lahore",
-    year: "2020 — 2022",
+    degree: "Intermediate in Computer Science",
+    institution: "Government College, University Lahore",
+    year: "2021 — 2023",
     description:
-      "Completed intermediate education with a focus on mathematics and physics, building a strong analytical foundation.",
+      "Completed intermediate education with a focus on mathematics and computer, building a strong analytical foundation.",
     status: "Completed",
   },
   {
-    degree: "Matriculation",
-    institution: "Punjab School, Lahore",
-    year: "2018 — 2020",
+    degree: "Matriculation in Computer",
+    institution: "Govt.Pilot Higher Secondary School Wahdat Road Lahore",
+    year: "2019 — 2021",
     description:
       "Completed matriculation with distinction, developing early interest in technology and problem solving.",
     status: "Completed",
@@ -44,13 +43,12 @@ const education = [
 export default function About() {
   return (
     <main className="about-main">
-      {/* Ambient blobs */}
+     
       <div className="blob blob-left" />
       <div className="blob blob-right" />
 
       <div className="about-container">
 
-        {/* ── PAGE HEADER ── */}
         <div className="about-header">
           <span className="about-eyebrow">Who I Am</span>
           <h1 className="about-title">About <span className="about-title-accent">Me</span></h1>
@@ -60,7 +58,7 @@ export default function About() {
           </p>
         </div>
 
-        {/* ── SKILLS SECTION ── */}
+        
         <section className="section">
           <div className="section-label">
             <span className="section-dot" />
@@ -68,25 +66,22 @@ export default function About() {
           </div>
 
           <div className="skills-grid">
-            {skills.map((skill, i) => (
-              <div className="skill-card" key={skill.name} style={{ animationDelay: `${i * 0.07}s` }}>
+            {skills.map((skill) => (
+              <div className="skill-card" key={skill.name} >
                 <div className="skill-top">
                   <span className="skill-icon">{skill.icon}</span>
                   <span className="skill-name">{skill.name}</span>
                   <span className="skill-percent">{skill.level}%</span>
                 </div>
-                <div className="skill-bar-track">
-                  <div
-                    className="skill-bar-fill"
-                    style={{ width: `${skill.level}%`, animationDelay: `${i * 0.07 + 0.3}s` }}
-                  />
+                <div className="skill-bar">
+                  <div className="skill-progress" style={{ width: `${skill.level}%`,height:"2px", backgroundColor: "#38bdf8" }} />
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── EDUCATION SECTION ── */}
+        
         <section className="section">
           <div className="section-label">
             <span className="section-dot" />
@@ -94,15 +89,15 @@ export default function About() {
           </div>
 
           <div className="timeline">
-            {education.map((edu, i) => (
-              <div className="timeline-item" key={i} style={{ animationDelay: `${i * 0.12}s` }}>
-                {/* Line + dot */}
+            {education.map((edu) => (
+              <div className="timeline-item" key={edu.degree} >
+                
                 <div className="timeline-line-col">
                   <div className="timeline-dot" />
-                  {i < education.length - 1 && <div className="timeline-connector" />}
+                   <div className="timeline-connector" />
                 </div>
 
-                {/* Card */}
+                
                 <div className="timeline-card">
                   <div className="timeline-card-top">
                     <div>
@@ -126,15 +121,5 @@ export default function About() {
       </div>
     </main>
   );
-=======
 
-export default function About() {
-    return (
-
-        <>
-        <div className="h-[400px] border-2"> <h1> HEllo</h1></div>
-        
-        </>
-    )
->>>>>>> 182255fbd23779e68ea16e16c355d050a008b786
 }
