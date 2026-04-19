@@ -217,7 +217,7 @@ export default function Resume() {
               }}
             >
               <Image
-                src="/resume.jpg"
+                src="/resume.png"
                 alt="Mudassir Ali Resume"
                 fill
                 style={{ objectFit: "cover" }}
