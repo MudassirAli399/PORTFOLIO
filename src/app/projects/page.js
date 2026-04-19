@@ -7,11 +7,11 @@ import Link from "next/link";
 const projects = [
   {
     id: 1,
-    title: "Portfolio Website",
+    title: "Typing Master",
     description:
-      "A modern personal portfolio built with Next.js and Tailwind CSS. Features smooth animations, dark theme, and fully responsive layout.",
-    tags: ["Next.js", "Tailwind CSS", "React"],
-    liveLink: "https://yourportfolio.com",
+      "This is made by simple using of HTML,CSS and JAVASCRIPT.This Increase my Logic to solve problems and also improve my skills.",
+    tags: ["HTML", "CSS", "JAVASCRIPT"],
+    liveLink: "https://typing-master-project-123.vercel.app",
     githubLink: "https://github.com/mudassir/portfolio",
     gradient: "linear-gradient(135deg, #6366f1, #38bdf8)",
   },
