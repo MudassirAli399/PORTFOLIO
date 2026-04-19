@@ -29,7 +29,7 @@ const projects = [
     id: 3,
     title: "Cuurency Converter",
     description:
-      "In this i knwo about creating custom hooks, api calling,props etc",
+      "In this i know about creating custom hooks, api calling,props etc",
     tags: ["React", "REST API", "Custom Hooks"],
     liveLink: "https://currency-converter-of-react-project.vercel.app",
     githubLink: "https://github.com/MudassirAli399/PROJECTS-OF-REACT/tree/main/currency-converter",
