@@ -24,14 +24,13 @@ const projects = [
   },
   {
     id: 3,
-    title: "Typing Master",
-    description:"Developed an interactive typing practice application using HTML, CSS, and JavaScript, featuring real-time WPM and accuracy tracking. Implemented DOM manipulation and event handling to provide instant feedback and a responsive user experience.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    liveLink: "https://typing-master-project-123.vercel.app",
-    githubLink:
-      "https://github.com/MudassirAli399/HTML-PROJECT",
-    tone: "#2d4a8a",
-    toneSoft: "#d9e0f0",
+    title: "Cuurency Converter",
+    description:
+      "In this i knwo about creating custom hooks, api calling,props etc",
+    tags: ["React", "REST API", "Custom Hooks"],
+    liveLink: "https://currency-converter-of-react-project.vercel.app",
+    githubLink: "https://github.com/MudassirAli399/PROJECTS-OF-REACT/tree/main/currency-converter",
+    gradient: "linear-gradient(135deg, #10b981, #06b6d4)",
   },
 ];
 
