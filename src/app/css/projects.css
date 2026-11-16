@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Work+Sans:wght@400;500;600&display=swap");
+
+:root {
+  --paper: #f3ede2;
+  --card: #fbf8f1;
+  --ink: #1f1b16;
+  --muted: #6b6257;
+  --line: #d6cbb8;
+  --accent: #b5451b;
+  --accent-soft: #f0d9c9;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Work Sans", system-ui, sans-serif;
+}
+
+/* ---------- Base ---------- */
+
+.proj-main {
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.proj-main *,
+.proj-main *::before,
+.proj-main *::after {
+  box-sizing: border-box;
+}
+
+.proj-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 72px) clamp(16px, 4vw, 40px) 96px;
+}
+
+/* ---------- Page header ---------- */
+
+.proj-header {
+  text-align: center;
+  margin-bottom: clamp(40px, 7vw, 72px);
+  animation: proj-rise 0.6s ease both;
+}
+
+.proj-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.proj-heading {
+  display: inline-block;
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 4px solid var(--ink);
+}
+
+.proj-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -9px;
+  border-bottom: 1.5px solid var(--accent);
+}
+
+.proj-subtitle {
+  max-width: 52ch;
+  margin: 12px auto 0;
+  color: var(--muted);
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+}
+
+/* ---------- Grid ---------- */
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: clamp(20px, 3vw, 32px);
+}
+
+/* ---------- Card ---------- */
+
+.proj-card {
+  --tone: var(--accent);
+  --tone-soft: var(--accent-soft);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: proj-rise 0.5s ease both;
+  animation-delay: calc(var(--i) * 100ms + 150ms);
+}
+
+/* dashed inner line, same as the About page */
+.proj-card::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed var(--line);
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 1;
+  transition: border-color 0.25s ease;
+}
+
+.proj-card:hover,
+.proj-card:focus-within {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 var(--tone);
+}
+
+.proj-card:hover::before,
+.proj-card:focus-within::before {
+  border-color: var(--tone);
+}
+
+/* ---------- Banner ---------- */
+
+.proj-banner {
+  position: relative;
+  height: 110px;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 10px,
+      rgba(31, 27, 22, 0.07) 10px 12px
+    ),
+    var(--tone-soft);
+  border-bottom: 2px solid var(--ink);
+}
+
+.proj-number {
+  position: absolute;
+  right: 22px;
+  bottom: 8px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 4.2rem;
+  line-height: 1;
+  color: var(--tone);
+  user-select: none;
+}
+
+/* ---------- Body ---------- */
+
+.proj-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px 24px 26px;
+}
+
+.proj-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.2rem, 2.6vw, 1.45rem);
+  line-height: 1.2;
+  margin-bottom: 10px;
+  overflow-wrap: anywhere;
+}
+
+.proj-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+.proj-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.proj-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  background: var(--tone-soft);
+  color: var(--ink);
+}
+
+/* ---------- Buttons ---------- */
+
+.proj-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto; /* keeps buttons level across cards */
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.proj-btn {
+  flex: 1 1 120px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 12px;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  position: relative;
+  z-index: 2;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.proj-btn:hover {
+  background: var(--ink);
+  color: var(--card);
+  transform: translateY(-2px);
+}
+
+.proj-btn.is-primary {
+  background: var(--tone);
+  color: var(--card);
+}
+
+.proj-btn.is-primary:hover {
+  background: var(--ink);
+}
+
+.proj-btn:focus-visible {
+  outline: 2px solid var(--tone);
+  outline-offset: 3px;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes proj-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proj-main *,
+  .proj-main *::before,
+  .proj-main *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- Phone ---------- */
+
+@media (max-width: 480px) {
+  .proj-body {
+    padding: 20px 18px 22px;
+  }
+
+  .proj-banner {
+    height: 90px;
+  }
+
+  .proj-number {
+    font-size: 3.4rem;
+  }
+
+  .proj-card:hover,
+  .proj-card:focus-within {
+    box-shadow: 4px 4px 0 var(--tone);
+  }
+}

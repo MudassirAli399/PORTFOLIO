@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Work+Sans:wght@400;500;600&display=swap");
+
+:root {
+  --paper: #f3ede2;
+  --card: #fbf8f1;
+  --ink: #1f1b16;
+  --muted: #6b6257;
+  --line: #d6cbb8;
+  --accent: #b5451b;
+  --accent-soft: #f0d9c9;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Work Sans", system-ui, sans-serif;
+}
+
+.res-main {
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.res-main *,
+.res-main *::before,
+.res-main *::after {
+  box-sizing: border-box;
+}
+
+.res-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 72px) clamp(16px, 4vw, 40px) 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(28px, 5vw, 44px);
+}
+
+/* ---------- Header ---------- */
+
+.res-header {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  animation: res-rise 0.6s ease both;
+}
+
+.res-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.res-heading {
+  display: inline-block;
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 7vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  padding-bottom: 12px;
+  border-bottom: 4px solid var(--ink);
+}
+
+.res-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -9px;
+  border-bottom: 1.5px solid var(--accent);
+}
+
+/* ---------- Buttons ---------- */
+
+.res-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 24px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.res-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--accent);
+  background: var(--accent-soft);
+}
+
+.res-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.res-btn:focus-visible,
+.res-sheet-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.res-btn.is-primary {
+  background: var(--accent);
+  color: var(--card);
+  padding: 15px 36px;
+}
+
+.res-btn.is-primary:hover {
+  background: var(--ink);
+  box-shadow: 6px 6px 0 var(--accent);
+}
+
+/* ---------- Resume sheet ---------- */
+
+.res-sheet {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 10px 10px 0 var(--accent);
+  animation: res-rise 0.6s ease 0.12s both;
+}
+
+.res-sheet-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--accent-soft);
+  border-bottom: 2px solid var(--ink);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.res-sheet-name {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.res-sheet-link {
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.res-sheet-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.res-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+
+/* ---------- Footer ---------- */
+
+.res-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  animation: res-rise 0.6s ease 0.25s both;
+}
+
+.res-note {
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes res-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .res-main *,
+  .res-main *::before,
+  .res-main *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- Phone ---------- */
+
+@media (max-width: 600px) {
+  .res-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .res-header .res-btn {
+    width: 100%;
+  }
+
+  .res-sheet {
+    box-shadow: 6px 6px 0 var(--accent);
+  }
+
+  .res-btn.is-primary {
+    width: 100%;
+  }
+}

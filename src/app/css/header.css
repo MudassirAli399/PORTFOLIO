@@ -1,0 +1,198 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper, #f3ede2);
+  border-bottom: 2px solid var(--ink, #1f1b16);
+  font-family: var(--font-body, "Work Sans", system-ui, sans-serif);
+}
+
+.site-nav {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 14px clamp(16px, 4vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* ---------- Logo ---------- */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display, "Fraunces", Georgia, serif);
+  font-weight: 800;
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  letter-spacing: -0.01em;
+  color: var(--ink, #1f1b16);
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 14px;
+  height: 14px;
+  background: var(--accent, #b5451b);
+  border: 2px solid var(--ink, #1f1b16);
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.logo:hover .logo-mark {
+  transform: rotate(135deg);
+}
+
+/* ---------- Desktop nav ---------- */
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 24px);
+  list-style: none;
+}
+
+.nav-link,
+.mobile-link {
+  color: var(--ink, #1f1b16);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1.5px solid transparent;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-link:hover {
+  border-color: var(--ink, #1f1b16);
+  background: var(--card, #fbf8f1);
+}
+
+.nav-link.is-active {
+  background: var(--accent-soft, #f0d9c9);
+  border-color: var(--ink, #1f1b16);
+  color: var(--accent, #b5451b);
+}
+
+.nav-link:focus-visible,
+.mobile-link:focus-visible,
+.hamburger:focus-visible,
+.logo:focus-visible {
+  outline: 2px solid var(--accent, #b5451b);
+  outline-offset: 3px;
+}
+
+/* ---------- Hamburger (hidden on desktop) ---------- */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  background: var(--card, #fbf8f1);
+  border: 2px solid var(--ink, #1f1b16);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.hamburger:hover {
+  background: var(--accent-soft, #f0d9c9);
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--ink, #1f1b16);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.hamburger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------- Mobile dropdown ---------- */
+
+.mobile-menu {
+  display: none;
+}
+
+/* ---------- Tablet / phone ---------- */
+
+@media (max-width: 900px) {
+  .nav-list {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    background: var(--card, #fbf8f1);
+    transition: grid-template-rows 0.3s ease;
+  }
+
+  .mobile-menu.is-open {
+    grid-template-rows: 1fr;
+    border-top: 1px solid var(--line, #d6cbb8);
+  }
+
+  .mobile-list {
+    list-style: none;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .mobile-list li + li {
+    border-top: 1px solid var(--line, #d6cbb8);
+  }
+
+  .mobile-link {
+    display: block;
+    padding: 16px clamp(16px, 4vw, 40px);
+    font-size: 0.9rem;
+    border-left: 4px solid transparent;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .mobile-link:hover {
+    background: var(--paper, #f3ede2);
+  }
+
+  .mobile-link.is-active {
+    border-left-color: var(--accent, #b5451b);
+    background: var(--accent-soft, #f0d9c9);
+    color: var(--accent, #b5451b);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header *,
+  .site-header *::before,
+  .site-header *::after {
+    transition: none !important;
+  }
+}
